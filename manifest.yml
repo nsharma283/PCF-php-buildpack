@@ -15,8 +15,8 @@ exclude_files:
   - php_buildpack-*v*
 
 url_to_dependency_map:
-  - match: newrelic-php5-(\d+\.\d+\.\d+\.\d+)-linux
-    name: newrelic
+  - match: appdynamics-php-agent-x64-linux-(\d+\.\d+\.\d+\.\d+)
+    name: appdynamics
     version: "$1"
   - match: "([^\\/]*)-(\\d+\\.\\d+\\.\\d+)"
     name: "$1"
