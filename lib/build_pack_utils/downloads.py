@@ -40,7 +40,6 @@ class Downloader(object):
             url,
             toFile]
 
-        print "Downloading [%s] to [%s] with command_arguments [%s] " % (url, toFile, command_arguments)
         process = Popen(command_arguments, stdout=PIPE)
         exit_code = process.wait()
 
