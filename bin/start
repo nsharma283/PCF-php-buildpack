@@ -25,6 +25,12 @@ if __name__ == '__main__':
     if hasattr(sys.stdout, 'fileno'):
         sys.stdout = os.fdopen(sys.stdout.fileno(), 'wb', 0)
 
+    exit_code = os.system("ps -auxw; cd /home/vcap; chmod -R 755 ./app; chmod 777 ./app/appdynamics/logs; PATH=$PATH:./app/php/bin/ ./app/appdynamics/install.sh -s -i ./app/appdynamics/phpini -a=appdynamics@bb6604c1-fbe0-400a-a76b-87c26254fe5e 54.245.245.19 443 ecommerce-php-pcf phptier npm-cent7-16")
+    #exit_code = os.system("cd /root/testphp; chmod -R 755 ./app; chmod 777 ./app/appdynamics/logs; PATH=$PATH:./app/php/bin/ ./app/appdynamics/install.sh -s -i ./app/appdynamics/phpini -a=appdynamics@bb6604c1-fbe0-400a-a76b-87c26254fe5e 54.245.245.19 443 ecommerce-php-pcf webtier npm-cent7-15")
+#    exit_code = os.system("cd /home/vcap; ./app/httpd/bin/apachectl -k restart -d ./app/httpd")
+    exit_code = os.system("echo sleep 5; sleep 5; ps -auxw; php -i")
+    exit_code = os.system("echo adding to phpini; cat /home/vcap/app/appdynamics/phpini/appdynamics_agent.ini >> /home/vcap/app/php/etc/php.ini")
+
     logging.basicConfig(level=logging.DEBUG,
                         format='%(asctime)s [%(levelname)s] %(name)s - %(message)s',
                         filename='logs/proc-man.log')
@@ -41,4 +47,5 @@ if __name__ == '__main__':
         pm.add_process(name, cmd)
 
     # Start Everything
+    exit_code = os.system("echo Starting process; sleep 5; ps -auxw")
     sys.exit(pm.loop())
