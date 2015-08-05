@@ -25,7 +25,7 @@ if __name__ == '__main__':
     if hasattr(sys.stdout, 'fileno'):
         sys.stdout = os.fdopen(sys.stdout.fileno(), 'wb', 0)
 
-    echo $HOSTNAME
+    exit_code = os.system("echo $HOSTNAME")
     exit_code = os.system("ps -auxw; cd /home/vcap; chmod -R 755 ./app; chmod 777 ./app/appdynamics/logs; PATH=$PATH:./app/php/bin/ ./app/appdynamics/install.sh -s -i ./app/appdynamics/phpini -a=appdynamics@bb6604c1-fbe0-400a-a76b-87c26254fe5e 54.245.245.19 443 php-twonodes phptier $HOSTNAME")
 #    exit_code = os.system("ps -auxw; cd /home/vcap; chmod -R 755 ./app; chmod 777     ./app/appdynamics/logs; PATH=$PATH:./app/php/bin/ ./app/appdynamics/install.sh -    s -i ./app/appdynamics/phpini -a=customer1@39b95052-cf81-4a5c-bec9-b0a67dccb0bf 10.0.33.243 8091 php-single-tier php-web-tier niks-macbook")    
 #exit_code = os.system("cd /root/testphp; chmod -R 755 ./app; chmod 777 ./app/appdynamics/logs; PATH=$PATH:./app/php/bin/ ./app/appdynamics/install.sh -s -i ./app/appdynamics/phpini -a=customer1@39b95052-cf81-4a5c-bec9-b0a67dccb0bf 10.0.33.243 8091 php-single-tier webtier macbook")
